@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SDW Activity</title>
+    <meta name="description" content="Dr. De Wet Activity">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  </head>
+  <body>
+    <a href="../../index.html"><button class="btn btn-primary">Home</button></a>&nbsp;&nbsp;<b>Dr. Steyn De Wet Clinic Activity</b>
+    
+    <canvas id="canvas"></canvas>
+    
+    <br>Light grey line is clinic average.<br>
+    Turn phone sideways.<br>
+    Pinch-zoom works for phones.<br>
+    Click on data points for details.<br>
+    <script>
+      var lineData = {
+      labels: ['Jan-2015', 'Mar-15', 'May-15', 'Jul-15', 'Sep-15', 'Nov-15', 'Jan-2016'],
+      datasets: [{
+        fillColor: 'rgba(0,0,0,0)',
+        strokeColor: 'rgba(212,210,219,1)',
+        pointColor: 'rgba(212,210,219,1)',
+        data: [255, 240, 271, 248, 253, 233, 292]
+      }, {
+        fillColor: 'rgba(0,0,0,0)',
+        strokeColor: 'rgba(61,61,61,1)',
+        pointColor: 'rgba(61,61,61,1)',
+        data: [422, 262, 340, 376, 210, 301, 330]
+      }]
+      };
+      
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = 'normal';
+      Chart.defaults.global.tooltipFillColor = 'rgba(0,160,0,0.8)';
+      Chart.defaults.global.animationEasing = 'easeOutBounce';
+      Chart.defaults.global.scaleLineColor = 'black';
+      Chart.defaults.global.scaleFontSize = 16;
+
+      var ctx = document.getElementById('canvas').getContext('2d');
+      var lineDemo = new Chart(ctx).Line(lineData, {
+        responsive: true,
+        pointDotRadius: 10,
+        bezierCurve: false,
+        scaleShowVerticalLines: false,
+        scaleGridLineColor: 'black'
+      });
+    </script>
+  </body>

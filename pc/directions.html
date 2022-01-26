@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Associate Clinic Pincher Creek</title>
+        <meta name="description" content="Mobile Website, The Associate Clinic, Medical Clinic, Pincher Creek, Alberta">
+        <meta name="keywords" content="Clinic Staff, Mobile Site, Appointments, PincherMedical, The Associate Clinic, Pincher Creek, Alberta, Medical Clinic">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body onload=display_ct();>
+        <a href="index.html">
+            <div class="home">&#8592; Home</div>
+        </a>
+        <br>
+        <table width="320">
+            <tr>
+                <td class="small" width="50%">
+                    <a href="index.html"><img src="img/11971481051197875180erlandh_Wind_Turbine_2.svg.thumb.png" height="75" border="0"></a>
+                    &nbsp;&nbsp;
+                    <a href="index.html"><img src="img/child-flying-kite-silhouette-th.png" height="23" border="0"></a>&nbsp;
+                    <a href="index.html"><img src="img/new-rainbow-2-th.png" height="14" style="vertical-align:top" border="0"></a>
+                </td>
+                <td class="small" width="50%">
+                    <a href="index.html"><img src="img/11971481051197875180erlandh_Wind_Turbine_2.svg.thumb.png" height="75" border="0"></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="index.html"><img src="img/child-flying-kite-silhouette-th.png" height="23" border="0"></a>
+                </td>
+            </tr>
+        </table>
+        <table width="320">
+            <tr>
+                <td colspan=3 class="medium">
+                    <a href="clinic.html">
+                        <b>The Associate Clinic</b>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=3 class="small">
+                    1222 Bev McLachlin Dr.<br>
+                    Open 5 days a week, 8:45 - 4:30 (4 on Fri)
+                </td>
+            </tr>
+            <tr>
+                <td class="smallb">Box 549<br>
+                    Pincher Creek, Alberta<br>
+                    T0K 1W0
+                </td>
+                <td class="small" width="10">&nbsp;
+                </td>
+                <td class="small">
+                    <div class="numbers">
+                        <span class="numbers">&#9990;&nbsp;Tel:<a href="tel:4036273321">403-627-3321</a></span><br>
+                        <span class="numbers">&#9743;Fax:403-627-2280</span><br>
+                        <span class="appts"><a href="appointments.html"><b>&#10170;&nbsp;Appointments</a></span></b>
+                    </div>
+                    <br>
+                </td>
+            </tr>
+        </table>
+        <div class="address">
+            West side of the hospital<br>
+            Across the street from Tim Horton's
+        </div>    
+        <div id="map_canvas" style="width: 310px; height: 130px">
+            &nbsp;
+        </div>
+        <br>
+        <table>
+            <tr>
+                <td class="undermap" width="135">
+                    <a href="information.html">
+                        <b>? Information</b>
+                    </a>
+                </td>
+                <td class="undermapsmall">
+                    After hours health concerns:<br>
+                    <b>Dial 811</b> for <a href="http://www.albertahealthservices.ca/7582.asp" target="_blank">Health Link</a>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <span id="ct" class="small"></span>
+            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAxvpx88Q0b_o28eIyrzuQQhTYbj50OiwnS2z7LRFqlrwCX2i7PxQUxBL1JdFetEzNNDcU1RB2PtlH1A"></script>
+    <script>
+        function display_c(){
+             var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct()',refresh)
+        }
+
+        function display_ct() {
+            var strcount
+            var x = new Date()
+            document.getElementById('ct').innerHTML = x;
+            tt=display_c();
+        }
+    </script>
+    <script>
+        var map = new GMap2(document.getElementById('map_canvas'));
+        map.setCenter(new GLatLng(49.493511,-113.947663), 15, G_NORMAL_MAP);
+    </script>
+    </body>
+</html>

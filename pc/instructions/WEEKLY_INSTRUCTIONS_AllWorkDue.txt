@@ -1,0 +1,306 @@
+WEEKLY_INSTRUCTIONS
+
+
+1) Rename the "O:\Data\CSV\WOLF" directory to "O:\Data\CSV\WOLF_<date>" where <date> is the previous week's date.
+Copy the "O:\Data\CSV\WOLF_empty" directory and rename the new copy to "O:\Data\CSV\WOLF"
+
+
+
+2) Rename the "O:\MS Access" directory to "O:\MS Access<date>"
+Copy the "O:\MS Access_empty" directory and rename the new copy to "O:\MS Access"
+
+
+
+3)Rename the "My Documents\Nursing" directory to "My Documents\Nursing<date>"
+Copy the "My Documents\Nursing_empty" directory and rename the new copy to "My Documents\Nursing"
+
+
+
+
+4) Run the SQL queries to get the CSV files needed.
+
+Execute the SQLGetCSV program
+This will take about 40 minutes to run.
+While this runs continue with the 
+following step 5 to get the practice searches.
+
+
+
+
+5) Get all Practice Searches saved to the O:\Data\CSV\Wolf\ directory
+
+
+**ADD THE HOMEPHONE AND SMOKING COLUMNS TO THE PRACTICE SEARCH RESULTS**
+
+**DO NOT SAVE ANY CHANGES TO THESE PRACTICE SEARCHES IF YOU ARE PROMPTED WHETHER TO SAVE CHANGES ALWAYS SAY NO**
+
+S_Diabetes_Search_Filtered
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be
+"Name", "Sex", "Age", "Last Visit", "PHN", “Home Phone”, “Smoking”, "Patient Doctors Elsewhere", "Decline - Blood Tests", "Excluded - Diabetic Blood Work", "AttendingMD"
+
+Save as "\Diabetes\Problem_ICD9Root_250_Clinical_Indicators.csv"
+
+
+**************************
+@@ MUST PUT THE BP AND DATE OF BP IN THE SEARCH  @@
+@@ AND MOVE SMOKING COLUMN TO END @@
+
+ScottGingras_Diabetes_menu
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be "Home Phone", "BP, "Date of BP", "Smoking"
+Save as "\Diabetes\Problem_ICD9Root_Diabetes_Not_Filtered.csv"
+
+
+ScottGingras_Hypertension_menu
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be "Home Phone", "BP", "Date of BP", "Smoking"
+Save as "\Hypertension\Hypertension_NOT_FILTERED.csv"
+
+*******************************************************************
+
+**REMOVE THE SMOKING COLUMN FROM PRACTICE SEARCH AND ALL BP COLUMNS**
+	but leave the HomePhone in there
+
+*******************************************************************
+
+
+
+S.Pap_eligible_filtered
+Save as "\Pap\EligibleFemales.csv"
+
+
+
+S.Mammo_eligible_filtered
+Save as "\Mammograms\EligibleFemales.csv"
+
+S.Mammo_eligible_40-49_filtered
+Save as "\Mammograms\EligibleFemales40-49.csv"
+
+
+!!Remove the 2 columns to the left of the ATTENDING MD in EligibleFemales.csv!!
+
+
+!!APPEND THE 40-49 NAMES INTO THE EligibleFemales.csv LIST once the # of columns matches!!
+
+
+
+
+W.FBS_Due
+
+Save as "\FBSLipids\FBS_Due.csv"
+
+
+***LINK THE 5 APOB TESTS TO THE CHOLESTEROL TEST UNDER "Lab Codes" in Wolf Maintenance "WolfMaint"
+1871-3	Alpha lipoprotein Apo B-100
+4356851	APOLIPOPROTEIN B
+4674406	APOLIPOPROTEIN B
+APOB100	APOLIPOPROTEIN B100
+		?APOB	APOLIPOPROTEIN B
+	Merge Code:	Cholesterol
+
+
+Practice Searches:
+SG_LIPIDS
+
+Save file as "\FBSLipids\Lipids_Due.csv"
+
+
+**Unlink CHOLESTEROL**
+
+
+
+*****ONCE MONTHLY DO:
+
+Diabetes_Patient_Visit_Counts
+	"HomePhone" column included and "Appointment during" value changed to reflect current month
+
+Save as "\Diabetes\Visit_Counts.csv"
+
+
+Hypertension_Patient_Visit_Counts
+	"HomePhone" column included and "Appointment during" value changed to reflect current month
+
+Save as "\Hypertension\Visit_Counts.csv"
+
+
+
+
+
+If needed Once Monthly GET Decline_Excluded.csv CREATED...
+
+Copy Without Headers and Paste into Excel, then save as CSV
+
+	--CHANGE THE QUERY 1 YEAR DATE!
+1) DECLINE or EXCLUDED Problem List Items Within 1 Year_RESTRICT-AGE.sql  "Decline_Excluded.xlsx"
+		**Use Excel otherwise the names get split because of the commas**
+
+	--CHANGE THE QUERY 1 YEAR DATE!
+2) ASSESSMENT_DECLINE_EXCLUDED_RESTRICT-AGE.sql  Paste into the Decline_Excluded.xlsx file
+
+3) Practice Search A_ASaP.Mammo.Screen - Declined  "Mammo_Declined.csv"
+	Remove rows that are not "Declined" or "Excluded"
+	Change column G or H to "Decline Mammo" or "Exclude Mammo"
+	DELETE THE LastVisit (and HomePhone) Column, Move AttendingMD to Column E
+
+
+4) Practice Search A_ASaP.Pap.Screen - Declined  "Pap_Declined.csv"
+	Remove rows that are not "Declined" or "Excluded"
+	Change column G or H to "Decline Pap" or "Exclude Pap"
+	DELETE THE LastVisit (and HomePhone) Column, Move AttendingMD to Column E
+
+
+!!!NOW STITCH EVERYTHING TOGETHER INTO THE DECLINE_EXCLUDED.XLSX FILE!!!
+
+SORT File by Patient Name and Save "Decline_Excluded.xlsx" Then Save As... a new copy
+"Decline_Excluded_No_Duplicates.xlsx"
+
+
+Delete all duplicates from the copy (manual process takes a LONG timellneed automated process!!)
+
+
+SORT BY AGE and DELETE ROWS NOT FOR ELIGIBLE AGE RANGES
+
+
+
+^^^
+
+*****
+
+
+**REMOVE THE HOMEPHONE COLUMN FROM PRACTICE SEARCH**
+**LEAVE LastVisitDate and PHN**
+
+
+
+
+
+6) Remove the header rows from all CSV files saved from step 1.
+Open up each CSV file saved from step 1 with Notepad, delete the first row containing the column headers so that only the data remains, then save each CSV file:
+\Diabetes\Visit_Counts.csv
+\Diabetes\Problem_ICD9Root_250_Clinical_Indicators.csv
+\Diabetes\Problem_ICD9Root_Diabetes_Not_Filtered.csv
+
+\Pap\EligibleFemales.csv
+\Mammograms\EligibleFemales.csv  (With EligibleFemales_40-49 ADDED at BOTTOM)
+
+\FBSLipids\FBS_Due.csv
+\FBSLipids\Lipids_Due.csv
+
+\Hypertension\Hypertension_NOT_FILTERED.csv
+\Hypertension\Visit_Counts.csv
+
+
+xxStop doing BMD Sept 2013
+xx\BMD\BMD_Due.csv
+xx
+
+
+
+
+
+7) Process all CSV files and populate the ClinicalIndicators databases
+
+ProcessDiabetesData() 
+ProcessMammoData()
+ProcessPapData()
+ProcessFBSScreeningData()
+ProcessLipidsScreeningData()
+
+**************************
+ProcessDiabetesMenuItems()	- Ignore "MEDS line..." errors (click OK to these messages)
+ProcessHypertensionMenuItems()	- Ignore "MEDS line..." errors (click OK to these messages)
+
+
+xx		Stop doing BMD Sept 2013
+xxProcessBMDData()o
+xx
+
+
+**REVIEW \processing_log\ directory to make sure no errors were reported**
+
+
+8) Build the Nursing reports.
+CreateAllWorkDueDocument()
+
+
+9) Build the "Diabetics Only" reports
+CreateDiabeticOnlyWorkDueDocument()
+
+
+9a) Build the "Appts Only" reports
+CreateApptOnlyWorkDueDocument()
+
+
+10) Deliver to NURSES folder in the shared ASSOCIATE CLINIC_REPORTS.
+Move the old documents to the \old directory.
+Deliver diabetics to the \diabetics directory also.
+Deliver appts to the \appts directory also.
+
+
+11) Update the  W:\Clinic Folders\ASSOCIATE_CLINIC_REPORTS\  directory.
+Delete the Patients With Tests Due document from each physician folder
+and replace with the most recent copy of the Patients With Tests Due document.
+
+
+12) Move the Nursing folder onto the encrypted drive (O:\Backup\)
+
+
+
+
+
+
+
+
+xx
+xxSTOP DOING BMD DUE ON THE NURSE PHONE LISTS Sept 2013
+xxZ.BMD_9_Eligible_Osteoporosis_FILTERED
+xxSave as "\BMD\BMD_Due.csv"
+xxSTOP DOING BMD DUE ON THE NURSE PHONE LISTS Sept 2013
+xx
+
+xxxxSTOP DOING CHF, HTN, IHD Jan. 9, 2014xxxx
+
+S_Heart_Failure_filtered
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be
+"Name", "Sex", "Age", "Last Visit", "PHN", “Home Phone”, “Smoking”, "Decline - Blood Tests", "Patient Doctors Elsewhere", "AttendingMD"
+
+Save as "\HeartFailure\Heart_Failure_By_Problem_428.csv"
+
+
+
+S_IHD_filtered
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be
+"Name", "Sex", "Age", "Last Visit", "PHN", “Home Phone”, “Smoking”, "Decline - Blood Tests", "Patient Doctors Elsewhere", "AttendingMD"
+
+Save as "\IHD\IHD_by_Problem.csv"
+
+
+
+S_Hypertension_filtered
+	"HomePhone" and "Smoking" columns included
+	the order of columns must be
+"Name", "Sex", "Age", "Last Visit", "PHN", “Home Phone”, “Smoking”, "Decline - Blood Tests", "Patient Doctors Elsewhere", "Excluded", "AttendingMD"
+
+Save as "\Hypertension\Hypertension_by_Problem_401.csv"
+
+
+\HeartFailure\Heart_Failure_By_Problem_428.csv
+\IHD\IHD_by_Problem.csv
+
+\Hypertension\visit_Counts.csv
+\Hypertension\Hypertension_by_Problem_401.csv
+\Hypertension\Hypertension_NOT_FILTERED.csv
+
+
+ProcessHypertensionData()	4 MINUTES
+ProcessHeartFailureData()
+ProcessIHDData()
+
+xxxxxx
+
+
+8A) ALTER IT USING THE CREATEDECLINEEXCLUDED PROGRAM
+	Change the arrDoctors(x) list

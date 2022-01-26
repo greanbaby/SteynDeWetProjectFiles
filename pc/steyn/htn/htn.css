@@ -1,0 +1,36 @@
+body {
+    background-color: antiquewhite;
+}
+h4 {
+    margin-bottom: 0px;
+    margin-top: 4px;
+}
+h4.fn {
+    margin-top: 22px;
+}
+h5 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.boxred {
+    background-color: #EC7963;
+    margin-top: 4px;
+}
+.boxyellow {
+    background-color: #DFD487;
+    margin-top: 4px;
+}
+.boxgreen {
+    background-color: #BDEBCA;
+    margin-top: 4px;
+}
+.sginput {
+  font-size: 1.2em;
+}
+.sgselect {
+  margin-left: 16px;
+}
+a:link {color: #000000; text-decoration: none; }
+a:active {color: #000000; text-decoration: none; }
+a:visited {color: #000000; text-decoration: none; }
+a:hover {color: #000000; text-decoration: none; }

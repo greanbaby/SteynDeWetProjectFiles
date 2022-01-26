@@ -1,0 +1,18 @@
+MAKE A NEW SQL PHYSICIAN BILLING with new dates:
+My Documents\Billing Analysis\SQL PHYSICIAN BILLING Mar 2016 Feb 19 to Mar 17.doc
+
+
+Save all search results to:
+O:\Billing
+
+Then save each as CSV files
+
+Import all into O:\Wolf_Import\Billing*.accdb
+
+VB.NET "BillingAnalysis"
+
+Print each file from the processing_log folder
+
+
+Previous Month:
+SQL PHYSICIAN BILLING Feb 2016 Jan 23 to Feb 18.doc

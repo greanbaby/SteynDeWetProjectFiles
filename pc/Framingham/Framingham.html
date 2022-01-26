@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Framingham Risk Calculator</title><link rel="stylesheet" href="fram.css"><script src="fram.js"></script>
+  <style type="text/css" media="print">
+    .DoNotPrint {
+      display: none;
+    }
+    .noborder {
+      background: transparent;
+      overflow: hidden;
+      border : 0px;}
+  </style></head>
+<body onload="start()"><form method="post" action="" name="Framingham"><input name="PatientGender" id="PatientGender" type="hidden" /><input name="BP" id="BP" type="hidden" /><input name="dailySmokes" id="dailySmokes" type="hidden" /><input name="smoker" id="smoker" type="hidden" /><input name="A1C" id="A1C" type="hidden" /><input name="history" id="history" type="hidden" /><input name="BPRx" id="BPRx" type="hidden" />
+  <div id="wrapper"><div id="content"><input class="btn DoNotPrint" value="Close" onclick="window.close()" type="button" /><h1>Framingham Heart Risk</h1><p>This calculator is for use only in <b>primary prevention</b>, and should not be used for individuals with known heart disease.</p> 
+  <input id="m$FRAM#value" name="m$FRAM#value"  type="hidden" /><input id="m$FRAM#dateObserved" name="m$FRAM#dateObserved"  type="hidden" /><input id="m$TCHL#dateObserved" name="m$TCHL#dateObserved"  type="hidden" />
+  <table><tbody><tr><td class="label">Name:</td><td><input id="cName" class="noborder noscreenborder" size="20" name="cName" type="text" /></td><td class="label">Date:</td><td> <input id="cDate" class="noborder noscreenborder" name="cDate" type="text" /></td></tr><tr><td class="label">Age now:</td><td><input id="cAge" class="bdr" size="5" onchange="Update()" name="cAge" type="text" /></td><td class="label">Sex:</td><td><input id="cMale" name="sex" onclick="Update()" checked="checked" type="radio" /> <label class="radio" for="cMale">Male</label><br /><input id="cFemale" name="sex" onclick="Update()" type="radio" /><label class="radio" for="cFemale">Female</label></td></tr><tr><td class="label">Systolic BP:</td><td><input id="cSystolic" class="bdr" size="5" name="cSystolic" onchange="Update()" type="text" /> mmHg</td><td class="label"><font color="#FF0000">*</font>&nbsp;BP Treated?</td><td><input id="cUntreated" name="bptreated" onclick="document.getElementById(\'BPRx\').value = \'N\'; Update()" type="radio" /><label class="radio" for="cUntreated">Untreated BP</label><br /><input id="cTreated" name="bptreated" onclick="document.getElementById(\'BPRx\').value = \'Y\'; Update()" checked="checked" type="radio" /><label class="radio" for="cTreated">Treated BP</label></td></tr><tr><td class="label">Total Cholesterol:</td><td><input id="cCholesterol" class="bdr" size="5" name="cCholesterol" onchange="Update()" type="text" /> mmol/L</td><td class="label">Smoker?</td><td><input id="cNonSmoker" name="smoking" onclick="Update()" checked="checked" type="radio" /><label class="radio" for="cNonSmoker">Non- or Ex-smoker</label><br /><input id="cCurSmoker" name="smoking" onclick="Update()" type="radio" /><label class="radio" for="cCurSmoker">Current Smoker</label></td></tr><tr><td class="label">HDL:</td><td><input id="cHDL" class="bdr" size="5" name="cHDL" onchange="Update()" type="text" /> mmol/L</td><td class="label">LDL:</td><td><input id="cLDL" class="noborder noscreenborder" size="5" name="cLDL" onchange="Update()" type="text" /> mmol/L</td></tr><tr id="DoNotPrint"><td><br /></td><td><br /><input id="subject"  name="subject" type="hidden" /></td><td><input class="btn DoNotPrint" value="Calculate" onclick="UpdateNonDiabetic()" type="button" /></td><td><input value="Print" class="btn DoNotPrint" name="PrintButton" type="button" onclick="window.print()" /></td></tr></table>
+  <div id="putR"></div><div id="theScript"></div></div></div>
+  <script src="autofill.js"></script><script src="js.js"></script></form>
+</body>
+</html>

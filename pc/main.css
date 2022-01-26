@@ -1,0 +1,47 @@
+.image {
+  position: relative;
+  top: 0px;
+}
+
+a.u:link {color: #ffffff; text-decoration: none; }
+a.u:active {color: #ffffff; text-decoration: none; }
+a.u:visited {color: #ffffff; text-decoration: none; }
+a.u:hover {color: #ffffff; text-decoration: none; }
+
+body.u {
+  font-family: sans-serif;
+  background-image: url('http://www3.telus.net/sgingras/tiled.jpg');
+  background-position: center top; 
+  background-repeat: repeat;
+  font-size: 9pt;
+}
+
+div.u {
+  color: white;
+  font-size: 16pt;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  line-height: 34px;
+  margin-top: 6px;
+  margin-left: 6px;
+  padding-left: 12px;
+}
+
+table.u {
+  padding: 0px;
+  background-color:burlywood
+}
+
+td.uh {
+  padding: 0px;
+  font-family: 'Verdana' 'Sans-Serif';
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+td.u {
+  font-family: 'Verdana', 'Sans-Serif';
+  font-size: 16pt;
+  padding: 0px;
+  letter-spacing: 0.1em;
+}

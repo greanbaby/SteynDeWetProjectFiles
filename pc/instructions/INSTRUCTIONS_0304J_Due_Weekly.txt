@@ -1,0 +1,78 @@
+INSTRUCTIONS_03.04J Due Automated
+
+Re-name the previous week's 
+O:\Data\CSV\CCP_Due_0304J_ColC_<OLDDATE>.xlsx
+
+
+
+ROOT DIRECTORY  O:\Data\Disease_Lists\
+
+Re-name old Disease_Lists folder and create a new Disease_Lists folder.
+
+0a) Run query to get patients DECLINING Care Conversations or Complex Care Plans...
+
+V.Decline_CC  Save as O:\Data\Disease_Lists\Decline_CC.csv
+V.Excluded_CC Save as O:\Data\Disease_Lists\Excluded_CC.csv
+
+0b) Run query to get patients that had the 03.04J done in the past 12 months.
+
+V.Complex_Care_Plans_Last_Year
+	Save as O:\Data\Disease_Lists\CCP_Done_Past_12_Months.csv
+
+
+1) Run SQLCCPQueries() to get .csv files output for these disease categories:
+	Asthma.csv
+	CHF.csv
+	Diabetes.csv
+	COPD.csv
+	IHD.csv
+	Hypertension.csv
+	Smoker.csv
+	Chronic_Renal_Failure.csv
+	Mental_Health.csv
+	Obesity.csv
+
+
+
+2) Make a copy of HTN.csv and re-name to MasterSheet.csv
+
+Add Column Headers
+Name	PHN	MD	Disease		Match
+
+Worksheet name must be "MasterSheet"
+
+
+
+3) Sort all values by Column B "PHN".
+Verify there must be no Blank values in PHN column.
+Remove any names with blank PHN (Test, Test)
+
+
+
+4) From the MasterSheet run the CCPDue() macro  (this take a LONG TIME)
+
+
+  ***DO NOT MESS WITH THE COMPUTER WHILE THIS RUNS OR IT WILL SCREW THINGS UP***
+****NO COPY/PASTING AT ALL FROM WOLF OR LOCAL!!****
+
+
+Obesity, Smoker are the last 2 files which will be processed by this long macro
+
+4b) OPTIONAL: SAVE list as ALL_PTS_MEETING_CRITERIA_0304J.xlsx
+
+
+5) Delete all rows with ONLY Group B items - this is going to be all patients starting with rows where "Mental_Health" is the first item listed.
+
+
+6a) FILTER those who have DECLINED or been EXCLUDED from a Care Conversation or Complex Care Plan.
+	Decline_CC.csv Excluded_CC.csv
+
+6b) Filter this list to remove anyone who already had the 03.04J C.C.P. in the past 12 months.
+Save the filtered list as FILTERED_0304J_Due.xlsx
+
+
+
+7) Copy Column B into Column C of a new worksheet.  Name this sheet
+O:\Data\CSV\All_Patients_Due_0304J_ColC.xls
+
+Show Patients Billed (Prov) For:  Fee Code  03.04J - Diagnostic interview....

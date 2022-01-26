@@ -1,0 +1,150 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: helvetica, arial, sans-serif;
+  text-align: left;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+#content
+{
+  margin: 20px;
+}
+
+#content h1, h2, h3
+{
+  font-weight: normal;
+  font-size: 20px;
+  margin: 17px 0px;
+}
+
+#content h2
+{
+  font-size: 15px;
+  padding-top: 17px;
+  border-top: 1px dotted #127785;
+}
+
+#content h2.nobar
+{
+  border: 0;
+  padding-top: 0;
+}
+
+#content h3
+{
+  font-size: 13px;
+}
+
+#content input.bdr
+{
+  border: 1px solid #5c4d46;
+}
+
+#content input.btn
+{
+  background-color: #f7f4d7;
+  padding: 2px 5px;
+  border: 1px solid #5c4d46;
+}
+
+#content a
+{
+  color: #127785;
+}
+
+#content a:hover
+{
+  color: #5c4d46;
+}
+
+#content sup a
+{
+  font-size: 11px;
+  padding: 0 4px;
+  font-weight: bold;
+}
+
+#content table
+{
+  width: 520px;
+}
+
+#content table td
+{
+  padding: 5px 2px;
+}
+
+#content table td
+{
+  vertical-align: top;
+}
+
+#content table td.label
+{
+  text-align: right;
+}
+
+#content table#FraminghamChart, #content table#UKPDSChart, #content table#key
+{
+  border-collapse: collapse;
+  margin: 20px 0px;
+}
+
+#content table#key
+{
+  margin-top: 20px;
+}
+
+#content table#FraminghamChart
+{
+  margin-bottom: 20px;
+}
+
+#content table#FraminghamChart td, #content table#UKPDSChart td
+{
+  border: 1px solid #5c4d46;
+  text-align: center;
+  vertical-align: middle;
+}
+
+input.title {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  background: #ffffff;
+  text-align: center;
+  width:100%;
+}
+
+.normaltext {
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.smallertext {
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.lettertext {
+  font-family: Arial;
+  font-size: 12px;
+}
+
+.noscreenborder {
+  scrollbar-3dlight-color: transparent;
+  scrollbar-arrow-color: transparent;
+  scrollbar-base-color: transparent;
+  scrollbar-darkshadow-color: transparent;
+  scrollbar-face-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+  scrollbar-track-color: transparent;
+  background: transparent;
+  overflow: hidden;
+  border : 0px;
+}

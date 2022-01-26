@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dia">
+    <head>
+        <meta charset="utf-8">
+        <title>Diabetes</title>
+        <meta name="description" content="Diabetes">
+        <meta name="keywords" content="Diabetes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="diab.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dia.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    </head>
+	<body>
+      
+	<div class="container-fluid">
+        <h3>143 Dr. De Wet Diabetic Patients</h3>
+        <h5>140 diabetics with visits in past year.</h5>
+        <h5>Avg. 9.74 visits; 1,364 visits in past year.</h5>
+        <h5>Updated 10-Feb-16; &nbsp;Date format dd-mmm-yy</h5>
+        <div class="row" ng-controller="diaCtrl">
+          <div class="sgselect">
+            <label for="singleSelect" class="sginput"> Sort by: </label><br>
+            <select ng-model="singleSelect" class="sginput"><option class="sginput" value="HbA1c_" selected>HbA1c result</option><option class="sginput" value="A1cS" selected>A1c test date</option><option class="sginput" value="A1c_2">A1c 2nd most recent</option><option class="sginput" value="A1c_3">A1c 3rd most recent</option><option class="sginput" value="BMI">BMI</option><option class="sginput" value="Visits">Visits in one year</option>
+            </select><br><br>
+            <label class="sginput"><input type="radio" class="sginput" ng-model="direction" name="direction" checked>Ascending</label>&nbsp;&nbsp;<label class="sginput"><input type="radio" class="sginput" ng-model="direction" name="direction" value="reverse">Descending</label><br>
+            <div class="col-sm-4"><input class="form-control input-md" placeholder="Name" ng-model="searchKey" /></div>
+          </div>
+          <br><br>
+          <h5>Click patient cards below for Framingham Ten-Year Coronary Heart Disease Risk:</h5>
+          <div class="col-sm-4 col-md-3 col-lg-2" ng-repeat="dia in diab | filter:searchKey | orderBy:singleSelect:direction">
+            <a href="din.html?{{dia.Num}}">
+              <div ng-class="{'boxred': (dia.HbA1c_ > 13), 'boxyellow': (dia.HbA1c_ <= 13) && (dia.HbA1c_ > 8), 'boxgreen': (dia.HbA1c_ <= 8) }">
+                <h4 class="fn">{{dia.FakeName}} &nbsp;{{dia.Age}}yrs</h4>
+                <h4>A1c <b>{{dia.HbA1c_}} | {{dia.A1c_d}}</b></h4>
+                <h4>A1c_ {{dia.A1c_2}} | {{dia.A1c_2d}}</h4>
+                <h4>A1c_ {{dia.A1c_3}} | {{dia.A1c_3d}}</h4>
+                <h4>BP {{dia.BP}} &nbsp;BMI {{dia.BMI}}</h4>
+                <h4>{{dia.Visits}} visits in one year</h4>
+              </div>
+            </a>
+            </div>
+        </div>
+      </div><br>
+      <script src="dia.js"></script>
+      <script src="../../Framingham/fram.js"></script>
+      <script src="../../Framingham/js.js"></script>
+	</body>
+</html>

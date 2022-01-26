@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SDW Panel</title>
+    <meta name="description" content="Dr. De Wet Panel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  </head>
+  <body>
+    <b>Dr. Steyn De Wet Panel Size</b>
+    
+    <canvas id="canvas"></canvas>
+    
+    <br>Light grey line is clinic average.<br>
+    Turn phone sideways.<br>
+    Pinch-zoom works for phones.<br>
+    Click on data points for details.<br>
+    <script>
+      var lineData = {
+      labels: ['Jan-2015', 'Mar-15', 'May-15', 'Jul-15', 'Sep-15', 'Nov-15', 'Jan-2016'],
+      datasets: [{
+        fillColor: 'rgba(0,0,0,0)',
+        strokeColor: 'rgba(212,210,219,1)',
+        pointColor: 'rgba(212,210,219,1)',
+        data: [803, 795, 818, 850, 847, 844, 905]
+      }, {
+        fillColor: 'rgba(0,0,0,0)',
+        strokeColor: 'rgba(61,61,61,1)',
+        pointColor: 'rgba(61,61,61,1)',
+        data: [1222, 1222, 1257, 1284, 1269, 1258, 1235]
+      }]
+      };
+      
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = 'normal';
+      Chart.defaults.global.tooltipFillColor = 'rgba(0,160,0,0.8)';
+      Chart.defaults.global.animationEasing = 'easeOutBounce';
+      Chart.defaults.global.scaleLineColor = 'black';
+      Chart.defaults.global.scaleFontSize = 16;
+
+      var ctx = document.getElementById('canvas').getContext('2d');
+      var lineDemo = new Chart(ctx).Line(lineData, {
+        responsive: true,
+        pointDotRadius: 10,
+        bezierCurve: false,
+        scaleShowVerticalLines: false,
+        scaleGridLineColor: 'black'
+      });
+    </script>
+  </body>

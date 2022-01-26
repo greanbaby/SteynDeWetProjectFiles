@@ -1,0 +1,24 @@
+DR. DE WET
+htn
+avg 7.86
+sum 2,382
+count 303
+
+diab
+avg 9.79
+sum 1,370
+count 140
+
+
+
+ALL CLINIC
+htn
+avg 7.73
+sum 11,105
+count 1,436
+
+diab
+avg 9.93
+sum 7,586
+count 764
+

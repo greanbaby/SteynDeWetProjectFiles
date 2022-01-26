@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="htn">
+    <head>
+        <meta charset="utf-8">
+        <title>Hypertension</title>
+        <meta name="description" content="Hypertension">
+        <meta name="keywords" content="Hypertension">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="htns.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="htn.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    </head>
+	<body>
+      
+      <div class="container-fluid">
+        <h3>310 Dr. De Wet Hypertensive Patients</h3>
+        <h5>303 hypertensives with visits in past year.</h5>
+        <h5>Avg. 7.98 visits; 2,418 visits in past year.</h5>
+        <h5>Updated 10-Feb-16; &nbsp;Date format dd-mmm-yy</h5>
+        <div class="row" ng-controller="htnCtrl">
+          <div class="sgselect">
+            <label for="singleSelect" class="sginput"> Sort by: </label><br>
+            <select ng-model="singleSelect"  class="sginput"><option class="sginput" value="Sys1" selected>Systolic</option><option class="sginput" value="Dia1">Diastolic</option><option class="sginput" value="BPS">Blood Pressure Date</option><option class="sginput" value="Sys2">Systolic 2nd most recent</option><option class="sginput" value="Dia2">Diastolic 2nd most recent</option><option class="sginput" value="BMI">BMI</option><option class="sginput" value="Visits">Visits in one year</option></select><br><br>
+            <label class="sginput"><input type="radio" class="sginput" ng-model="direction" name="direction" checked>Ascending</label>&nbsp;&nbsp;<label class="sginput"><input type="radio" class="sginput" ng-model="direction" name="direction" value="reverse">Descending</label><br>
+            <div class="col-sm-4"><input class="form-control input-md" placeholder="Name" ng-model="searchKey" /></div>
+          </div>
+          <br><br>
+          <h5>Click patient cards below for Framingham Ten-Year Coronary Heart Disease Risk:</h5>
+          <div class="col-sm-4 col-md-3 col-lg-2" ng-repeat="htn in htns | filter:searchKey | orderBy:singleSelect:direction" ng-controller="htnItemShow">
+            <a href="in.html?{{htn.Num}}">
+              <div ng-class="{'boxred': (htn.bpSystolic > 175), 'boxyellow': (htn.bpSystolic <= 175) && (htn.bpSystolic > 150), 'boxgreen': (htn.bpSystolic <= 150) }">
+                <h4 class="fn">{{htn.FakeName}} &nbsp;{{htn.Age}}yrs</h4>
+                <h4>BP <b>{{htn.BPr}}</b> | {{htn.BPDate}}</h4>
+                <h4>BP2 {{htn.BPr2}} | {{htn.BP2Date}}</h4>
+                <h4>BP3 {{htn.BPr3}} | {{htn.BP3Date}}</h4>
+                <h4>BMI {{htn.BMI}} | {{htn.Visits}} Visits</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div><br>
+      <script src="htn.js"></script>
+      <script src="../../Framingham/fram.js"></script>
+      <script src="../../Framingham/js.js"></script>
+	</body>
+</html>

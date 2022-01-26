@@ -1,0 +1,49 @@
+INSTRUCTIONS JSON
+
+O:\CSV\
+
+1) Export the MS Access view "JSON-diab" and also "JSON-htn" to Excel <htn>;<dia>ClinicalSummary.xlsx - 
+
+DELETE DOCTORS EXCEPT DE WET then delete the AttendingMD column
+
+2) Sort <dia> by HbA1c NUMERIC then Create new Column A which is "Num" column (A3=A2+1)
+
+3) Create FakeName ColC Compute "CONCATENATE("Patient Q",A2) to get "Patient Q1"  (dia="Patient 1")
+
+4) Repeat this down all rows for "FakeName" column
+
+5) Change column titles and lab result columns with formula:
+
+ =CONCATENATE("<b>",K2,"</b><br>",TEXT(L2,"dd-mmm-yy"))
+
+diab = Num	PatientName	FakeName	Age	BMI	Smoking	Visits	BP	GHTLast	HbA1c	HbA1c_	A1c_d	HbA1c_2	A1c_2	A1c_2d	HbA1c_3	A1c_3	A1c_3d	LDL	HDL	TotalChol	Trig	ProblemList	Medication
+
+ADD DIA COL 	A1cS		(yyyymmdd)
+	=TEXT(M2, "yyyymmdd")
+
+CUT the rows with double-digit systolic BP values (below 100) and then PASTE these rows at the end of the file
+
+htns = Num	PatientName	FakeName	Age	Sex	BMI	BP	BPDate	BP2	BP2Date	BP3	BP3Date	Visits	Smoking	GHTLast Cr	Cr_d	EGFR	EGFR_d	TotalChol	TotalChol_d	HDL	HDL_d	LDL	LDLDate	Trig	TrigDate		ProblemList	Medications 	
+
+ADD HTN COLS 	BPS	
+	=TEXT(L2, "yyyymmdd")
+
+		Sys1		Dia1		Sys2		Dia2
+			=LEFT(K2,SEARCH("/",K2,1)-1)
+			=RIGHT(K2,LEN(K2)-SEARCH("/",K2,1))
+
+6) Create the Lab Result column that concatenates
+=CONCATENATE("<b>",K2,"</b><br>",TEXT(L2,"dd-mmm-yy"))
+
+
+7) Save as CSV file
+
+8) Trim the real PATIENT name from both CSVs and the lab cols not needed
+
+9) Build the JSON at http://www.convertcsv.com/csv-to-json.htm
+
+10) add 'var htns = '  AND  'var diab = '
+
+11) REPLACE all "Test not performed" "NOT DONE" "00-Jan-00" with just ""
+ 
+

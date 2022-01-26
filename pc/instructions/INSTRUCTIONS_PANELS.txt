@@ -1,0 +1,92 @@
+O:\PANELS
+
+Move all files to a folder named for previous month
+
+
+^^^NEED TO DO 2 SEPARATE LISTS: ONE FOR "OFFICE PATIENTS" ONE FOR "NEW PATIENTS"^^^
+
+
+Sort by AttendingMD
+Practice Searches:	Save As:
+"SG_ALL_PANEL"		PANEL_PATIENTS_<date>.csv
+			NEW_PATIENTS_<date>.csv
+
+
+Perform 2 different calculations on each list to find:
+	- NEW patients added to each
+	- REMOVED patients off each
+
+'^^^^^^^^^^^^^^^^^^^^^^^^^
+ALL_PANEL
+	1) Create column H with formula "=A2&G2" column header "Name+AttendingMD"
+	2) Fill this formula down the entire column H
+	3) Save as "*.xlsx" file having bold column headers
+
+Do a comparison of finding names on OLD list that are not on NEW
+	(REMOVED patients)
+	OLD LIST in column A and NEW LIST in column C
+
+Do a comparison of finding names on NEW list that are not on OLD
+	(NEW patients)
+	NEW LIST in column A and OLD LIST in column C
+
+
+****
+
+On the PANEL lists, strikethrough font all patients with exact same PHN but just different names
+
+On the Removed from NEW PATIENT list, strikethrough font all patients who are on the Newly Added to Panels list
+
+****
+
+
+COLUMNS IN REPORT FOR SUSAN S: 
+Name	LastVisit	PHN		AttendindMD	Age
+
+HEADERS: 
+"PANEL PATIENTS REMOVED <date>"		-SORT THIS BY ATTENDINGMD AND THEN PT NAME
+"PANEL PATIENTS NEWLY ADDED <date>"		-SORT THIS BY ATTENDINGMD AND THEN PT NAME
+'^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OLD INSTRUCTIONS PRIOR TO DECEMBER 2013:
+
+Do 2 separate reports: Panels; Alternate Panels
+
+"SG_ALTERNATE_PANEL"	ALTERNATE_PANEL_<date>.csv
+
+'-------------------------------
+ALTERNATE_PANEL
+<repeat instructions for "ALL_PANEL" as above> but use ALTERNATE MD
+
+COL J formula	=A2&H2
+
+"Alternate Panel Patients REMOVED <date>"
+"Alternate Panel Patients ADDED <date>"
+'--------------------------------
+
+
+COLUMNS IN REPORT FOR SUSAN S:
+Name	PHN	Address		AlternateMD	Age
